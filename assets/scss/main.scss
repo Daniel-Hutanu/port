@@ -1,0 +1,150 @@
+$main: #080f1a;
+$second: #00ffff;
+$shadow: #262626;
+$white: #fff;
+
+$point-width: 10px;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background-color: $main;
+  overflow-x: hidden;
+  color: $white;
+  min-height: 100dvh;
+}
+.site-container {
+  padding: 30px;
+}
+.logo {
+  position: relative;
+  width: $point-width * 11;
+  height: $point-width * 5;
+  span {
+    display: block;
+  }
+  .point {
+    width: $point-width;
+    height: $point-width;
+    position: absolute;
+    border-radius: 50%;
+    background: $second;
+    background: linear-gradient(153deg, $second 0%, rgba(38, 38, 38, 1) 86%);
+  }
+  .point.p1 {
+    top: 0;
+    left: 0;
+    animation: move-p1 15s cubic-bezier(0.88, 0.42, 0.11, 0.86) infinite;
+  }
+  @keyframes move-p1{
+    0%, 15%, 85%, 100% {
+      top: 0;
+      left: 0;
+    }
+    20%, 80%{
+      top: $point-width * 2;
+      left: 0;
+    }
+    25%, 75% {
+      top: $point-width * 2;
+      left: $point-width * 4;
+    }
+  }
+  .point.p2 {
+    top: 0;
+    right: 0;
+    animation: move-p2 15s cubic-bezier(0.88, 0.42, 0.11, 0.86) infinite;
+  }
+  @keyframes move-p2{
+    0%, 15%, 85%, 100% {
+      top: 0;
+      right: 0;
+    }
+    20%, 80%{
+      top: $point-width * 2;
+      right: 0;
+    }
+    25%, 75% {
+      top: $point-width * 2;
+      right: $point-width * 4;
+    }
+  }
+  .point.p3 {
+    left: 0;
+    bottom: 0;
+    animation: move-p3 15s cubic-bezier(0.88, 0.42, 0.11, 0.86) infinite;
+  }
+  @keyframes move-p3{
+    0%, 25%, 75%, 100% {
+      bottom: 0;
+      left: 0;
+    }
+    30%, 70%{
+      bottom: $point-width * 2;
+      left: 0;
+    }
+    35%, 65% {
+      bottom: $point-width * 2;
+      left: $point-width * 2;
+    }
+  }
+  .point.p4 {
+    bottom: 0;
+    right: 0;
+    animation: move-p4 15s cubic-bezier(0.88, 0.42, 0.11, 0.86) infinite;
+  }
+  @keyframes move-p4{
+    0%, 25%, 75%, 100% {
+      bottom: 0;
+      right: 0;
+    }
+    30%, 70%{
+      bottom: $point-width * 2;
+      right: 0;
+    }
+    35%, 65%{
+      bottom: $point-width * 2;
+      right: $point-width * 2;
+    }
+  }
+  .letter-d {
+    position: absolute;
+    top: $point-width * 2;
+    left: $point-width * 2;
+    display: flex;
+    gap: $point-width;
+    span {
+      animation: move-up 15s cubic-bezier(0.88, 0.42, 0.11, 0.86) infinite;
+      &:nth-child(2) {
+        animation-delay: 100ms;
+      }
+      &:last-child{
+        animation-delay: 200ms;
+      }
+    }
+    @keyframes move-up {
+      0%, 10%, 90%, 100% {
+        transform: translateY(0);
+      }
+      25%, 75%{
+        transform: translateY(-$point-width * 2);
+      }
+    }
+    .point {
+      position: relative;
+    }
+    .line {
+      width: $point-width * 3;
+      height: $point-width;
+      background: $second;
+      background: linear-gradient(153deg, $second 0%, rgba(38, 38, 38, 1) 100%);
+    }
+  }
+}
